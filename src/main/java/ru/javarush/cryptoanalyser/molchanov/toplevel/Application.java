@@ -1,7 +1,7 @@
-package ru.javarush.cryptoanaliser.molchanov.app;
+package ru.javarush.cryptoanalyser.molchanov.toplevel;
 
-import ru.javarush.cryptoanaliser.molchanov.Result;
-import ru.javarush.cryptoanaliser.molchanov.controller.MainController;
+import ru.javarush.cryptoanalyser.molchanov.entity.Result;
+import ru.javarush.cryptoanalyser.molchanov.controller.MainController;
 
 import java.util.Arrays;
 
