@@ -13,6 +13,8 @@ public class Runner {
         System.out.println(Arrays.toString(args));
         Result result = application.run(args);
         System.out.println(result.toString());
+        // statisticanalise encoded.txt textForStatisticAnalise.txt
+        //encode text.txt encoded.txt 20
 
     }
 }
