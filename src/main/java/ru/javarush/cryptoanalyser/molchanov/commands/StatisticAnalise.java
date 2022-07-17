@@ -10,10 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class StatisticAnalise implements Action{
     @Override
@@ -38,16 +35,23 @@ public class StatisticAnalise implements Action{
         Character[] encodedTextInCharacter = TextUtilMethods.charToCharacterArray(encodedTextInChar);
         Character[] analyzedTextInCharacter= TextUtilMethods.charToCharacterArray(analyzedTextToChar);
 
-        TreeMap<Character, Double> encodedTextStatistic = TextUtilMethods.textAnalise(encodedTextInCharacter);
-        TreeMap<Character, Double> analyzedTextStatistic = TextUtilMethods.textAnalise(analyzedTextInCharacter);
-        System.out.println(encodedTextStatistic.toString());
-        System.out.println(analyzedTextStatistic.toString());
+        HashMap<Character, Double> encodedTextStatistic = UtilsForStatisticAnalise.textAnalise(encodedTextInCharacter);
+        HashMap<Character, Double> analyzedTextStatistic = UtilsForStatisticAnalise.textAnalise(analyzedTextInCharacter);
+        System.out.println(encodedTextStatistic);
+        System.out.println(analyzedTextStatistic);
+        System.out.println(UtilsForStatisticAnalise.statDecoderIt1(encodedTextInChar, encodedTextStatistic, analyzedTextStatistic));
+
 
         try {
-            Files.writeString(pathOut, String.copyValueOf(encodedTextInChar));
+            Files.writeString(pathOut, UtilsForStatisticAnalise.statDecoderIt1(encodedTextInChar,
+                    encodedTextStatistic, analyzedTextStatistic));
         } catch (IOException e) {
             return new Result(ResultCode.ERROR, "Writing to file failed" + pathOut);
         }
         return new Result(ResultCode.OK, "Text was decoded" + pathOut);
     }
+
+
+
+
 }

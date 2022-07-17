@@ -14,7 +14,9 @@ public class Runner {
         Result result = application.run(args);
         System.out.println(result.toString());
         // statisticanalise encoded.txt textForStatisticAnalise.txt
-        //encode text.txt encoded.txt 20
+        // encode text.txt encoded.txt 20
+        // decode encoded.txt decoded.txt 20
+        // bruteforce encoded.txt decoded.txt
 
     }
 }
